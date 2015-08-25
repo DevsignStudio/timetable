@@ -24,8 +24,8 @@ After finish downloading dependencies, rename .env.example to .env. Open .env fi
 
 run php server in public folder. from current project directory :
 
-``
-cd public
+``html
+cd public <br/>
 php -S 0.0.0.0:8000
 ``
 
