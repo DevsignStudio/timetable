@@ -15,15 +15,11 @@
             <nav class="red darken-2" role="navigation">
                 <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">TimeTabler</a>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="#">Sign In</a></li>
-                        <li><a href="#">Courses</a></li>
-                        <li><a href="#">Sign Out</a></li>
+                        <li><a href="/login">Sign In</a></li>
                     </ul>
 
                     <ul id="nav-mobile" class="side-nav">
-                        <li><a href="#">Sign In</a></li>
-                        <li><a href="#">Courses</a></li>
-                        <li><a href="#">Sign Out</a></li>
+                        <li><a href="/login">Sign In</a></li>
                     </ul>
                     <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
                 </div>
