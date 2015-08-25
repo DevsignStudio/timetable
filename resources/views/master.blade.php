@@ -13,7 +13,7 @@
     <body>
         @section('navigation')
             <nav class="red darken-2" role="navigation">
-                <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">TimeTabler</a>
+                <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">TimeTabler</a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="/login">Sign In</a></li>
                     </ul>

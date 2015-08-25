@@ -33,3 +33,9 @@ php -S 0.0.0.0:8000
 ``
 
 Then, go to [http://localhost:8000](http://localhost:8000) or [http://0.0.0.0:8000](http://0.0.0.0:8000)
+
+### Database connect
+
+* create new database using phpmyadmin, if use xampp, run apache & mysql
+* set database name, username, password
+* then, run "php artisan migrate" in project root folder"

@@ -31,6 +31,14 @@ class CreateUsersTable extends Migration
         $user->email = "skynightz93@gmail.com";
 
         $user->save();
+
+        $user = new User();
+        $user->name = "Amirin";
+        $user->username = "b14cs0020";
+        $user->password = Hash::make("password");
+        $user->email = "skynightz9392@gmail.com";
+
+        $user->save();
     }
 
     /**
