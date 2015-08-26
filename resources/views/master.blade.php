@@ -11,33 +11,41 @@
         <title>TimeTabler - @yield('title')</title>
     </head>
     <body>
-        @section('navigation')
+        <header>
+            @section('navigation')
 
-            <nav class="red darken-2" role="navigation">
-                <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">TimeTabler</a>
-                    @if(Auth::guest())
-                        <ul class="right hide-on-med-and-down">
-                            <li><a href="/login">Sign In</a></li>
-                        </ul>
+                <nav class="red darken-2" role="navigation">
+                    <div class="nav-wrapper container">
 
-                        <ul id="nav-mobile" class="side-nav">
-                            <li><a href="/login">Sign In</a></li>
-                        </ul>
-                    @else
-                        <ul class="right hide-on-med-and-down">
-                            <li><a href="/logout">Sign Out</a></li>
-                        </ul>
+                        @if(Auth::guest())
+                            <a id="logo-container" href="/" class="brand-logo">TimeTabler</a>
+                            <ul class="right hide-on-med-and-down">
+                                <li><a href="/login">Sign In</a></li>
+                            </ul>
 
-                        <ul id="nav-mobile" class="side-nav">
-                            <li><a href="/logout">Sign Out</a></li>
-                        </ul>
-                    @endif
-                    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-                </div>
-            </nav>
-        @show
+                            <ul id="nav-mobile" class="side-nav">
+                                <li><a href="/login">Sign In</a></li>
+                            </ul>
+                        @else
+                            <a id="logo-container" href="/panel" class="brand-logo">TimeTabler</a>
+                            <ul class="right hide-on-med-and-down">
+                                <li><a href="/logout">Sign Out</a></li>
+                            </ul>
 
-        @yield('content')
+                            <ul id="nav-mobile" class="side-nav">
+                                <li><a href="/logout">Sign Out</a></li>
+                            </ul>
+                        @endif
+                        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                    </div>
+                </nav>
+            @show
+        </header>
+
+        <main>
+            @yield('content')
+        </main>
+
 
         @section('footer')
         <footer class="page-footer red darken-2">
