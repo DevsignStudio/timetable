@@ -65,7 +65,7 @@
                     </tbody>
                 </table>
 
-                <a style="margin-top: 20px;" class="waves-effect waves-light btn">Add New Timetable</a>
+                <a href="panel/timetable-add" style="margin-top: 20px;" class="waves-effect waves-light btn">Add New Timetable</a>
             </div>
         </div>
     </div>
