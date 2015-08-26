@@ -12,7 +12,9 @@ use Crypt;
 
 class PanelController extends Controller{
     public function getIndex() {
-        return view("panel.index");
+        $data['tts'] = Timetable::where("user_id", Auth::user()->id)->get();
+        $data['count'] = Timetable::where("user_id", Auth::user()->id)->count();
+        return view("panel.index", $data);
     }
 
     public function getTimetableAdd() {

@@ -24,44 +24,32 @@
                     <thead>
                         <tr>
                             <th data-field="id">Id</th>
-                            <th data-field="name">Year/Semester</th>
+                            <th data-field="name">Year</th>
+                            <th data-field="name">Semester</th>
                             <th data-field="price">Number Of Subject(s)</th>
                             <th data-field="price">View Timetable</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($tts as $tt)
                         <tr>
-                            <td>1</td>
-                            <td>Eclair</td>
-                            <td>$0.87</td>
+                            <td>{{$tt->id}}</td>
+                            <td>{{$tt->year}}</td>
+                            <td>Semester {{$tt->semester}}</td>
+                            <td>-</td>
                             <td>
                                 <a class="waves-effect waves-light btn">View</a>
                             </td>
                         </tr>
+                        @endforeach
+
+                        @if ($count == 0)
                         <tr>
-                            <td>2</td>
-                            <td>Jellybean</td>
-                            <td>$3.76</td>
-                            <td>
-                                <a class="waves-effect waves-light btn">View</a>
-                            </td>
+                            <td colspan="100" style="text-align:center">No Timetable create</td>
                         </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Lollipop</td>
-                            <td>$7.00</td>
-                            <td>
-                                <a class="waves-effect waves-light btn">View</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>KitKat</td>
-                            <td>$9.99</td>
-                            <td>
-                                <a class="waves-effect waves-light btn">View</a>
-                            </td>
-                        </tr>
+                        @endif
+
+
                     </tbody>
                 </table>
 
