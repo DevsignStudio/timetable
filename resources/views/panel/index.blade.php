@@ -28,6 +28,7 @@
                             <th data-field="name">Semester</th>
                             <th data-field="price">Number Of Subject(s)</th>
                             <th data-field="price">View Timetable</th>
+                            <th data-field="price">Add Subject</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,9 +37,12 @@
                             <td>{{$tt->id}}</td>
                             <td>{{$tt->year}}</td>
                             <td>Semester {{$tt->semester}}</td>
-                            <td>-</td>
+                            <td>{{$tt->subjects()->count()}} subject(s)</td>
                             <td>
-                                <a class="waves-effect waves-light btn">View</a>
+                                <a href="/panel/timetable-view/{{$tt->id}}" class="waves-effect waves-light btn">View</a>
+                            </td>
+                            <td>
+                                <a href="/panel/timetable-subject-add/{{$tt->id}}" class="waves-effect waves-light btn">Add Subject</a>
                             </td>
                         </tr>
                         @endforeach
