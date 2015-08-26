@@ -19,9 +19,7 @@ class PublicController extends Controller{
 
     public function postLogin(Request $request) {
         if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
-            $user = User::find(Auth::user()->id);
-
-            return $user;
+            return redirect("panel");
         }
 
         return redirect()->back()->with("err", "Error when try to login to system");
