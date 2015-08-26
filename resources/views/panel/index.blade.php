@@ -23,34 +23,49 @@
                 <table class="hoverable responsive-table">
                     <thead>
                         <tr>
-                            <th data-field="id">Name</th>
-                            <th data-field="name">Item Name</th>
-                            <th data-field="price">Item Price</th>
+                            <th data-field="id">Id</th>
+                            <th data-field="name">Year/Semester</th>
+                            <th data-field="price">Number Of Subject(s)</th>
+                            <th data-field="price">View Timetable</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Alvin</td>
+                            <td>1</td>
                             <td>Eclair</td>
                             <td>$0.87</td>
+                            <td>
+                                <a class="waves-effect waves-light btn">View</a>
+                            </td>
                         </tr>
                         <tr>
-                            <td>Alan</td>
+                            <td>2</td>
                             <td>Jellybean</td>
                             <td>$3.76</td>
+                            <td>
+                                <a class="waves-effect waves-light btn">View</a>
+                            </td>
                         </tr>
                         <tr>
-                            <td>Jonathan</td>
+                            <td>3</td>
                             <td>Lollipop</td>
                             <td>$7.00</td>
+                            <td>
+                                <a class="waves-effect waves-light btn">View</a>
+                            </td>
                         </tr>
                         <tr>
-                            <td>Shannon</td>
+                            <td>4</td>
                             <td>KitKat</td>
                             <td>$9.99</td>
+                            <td>
+                                <a class="waves-effect waves-light btn">View</a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
+
+                <a style="margin-top: 20px;" class="waves-effect waves-light btn">Add New Timetable</a>
             </div>
         </div>
     </div>
