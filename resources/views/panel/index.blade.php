@@ -10,9 +10,9 @@
                 <div class="card blue darken-1" style="margin-bottom: 30px;">
                     <div class="card-content white-text">
                         <span class="card-title">Welcome to Timetabler, {{Auth::user()->name}}!</span>
-                        <p>I am a very simple card. I am good at containing small bits of information.I am convenient because I require little markup to use effectively.</p>
-                        <p>I am a very simple card. I am good at containing small bits of information.I am convenient because I require little markup to use effectively.</p>
-                        <p>Amirin, Nanti edit dekat sini</p>
+                        <p>This website is designed to help you to manage your time, classes, and subjects throughout all the semesters.</p>
+                        <p>Its really easy to use!</p>
+                        <p>Lets get started!</p>
 
                     </div>
                     <div class="card-action">
