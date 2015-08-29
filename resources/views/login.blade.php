@@ -11,7 +11,11 @@
             <div class="card-panel pink">
                 <span class="white-text">{{session("err")}}</span>
             </div>
+
             @endif
+            <br>
+            <br><br>
+            <br><br>
             <div class="row">
                 <div class="input-field col s12">
                     <input id="matricNum" type = "text" name="username" class="validate">
