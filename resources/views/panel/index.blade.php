@@ -7,7 +7,6 @@
     <div class="section">
         <div class="row">
             <div class="col s12">
-                <img src="/img/timetabler.png" class="responsive-img" alt="TimeTabler">
                 <div class="card blue darken-1" style="margin-bottom: 30px;">
                     <div class="card-content white-text">
 

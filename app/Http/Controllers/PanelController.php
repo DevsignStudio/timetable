@@ -167,7 +167,9 @@ class PanelController extends Controller{
         $data['tt_10'] = $tt->period(10);
         $data['tt_11'] = $tt->period(11);
         $data['tt_12'] = $tt->period(12);
-        // return $tt->period(2);
+
+        $data["subs"] = $tt->subjects();
+        $data["count"] = Subject::where("timetable_id", $tt->id)->count();
         return view("panel.timetable-view", $data);
     }
 

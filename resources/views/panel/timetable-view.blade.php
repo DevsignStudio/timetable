@@ -17,21 +17,9 @@
 
                 </style>
                 <form class="col s12" action="/panel/subject-view" method="post">
-                <table class="hoverable responsive-table">
+                    <table class="hoverable responsive-table">
                     <thead>
                         <tr>
-                            {{-- <th data-field="id">Day/Period</th>
-                            <th data-field="day">08:00-09:00</th>
-                            <th data-field="day">09:00-10:00</th>
-                            <th data-field="day">10:00-11:00</th>
-                            <th data-field="day">11:00-12:00</th>
-                            <th data-field="day">12:00-13:00</th>
-                            <th data-field="day">13:00-14:00</th>
-                            <th data-field="day">14:00-15:00</th>
-                            <th data-field="day">15:00-16:00</th>
-                            <th data-field="day">16:00-17:00</th>
-                            <th data-field="day">17:00-18:00</th>
-                            <th data-field="day">18:00-19:00</th> --}}
                             <th data-field="id">Day/Period</th>
                             <th data-field="id" style="text-align:center">Sunday</th>
                             <th data-field="id" style="text-align:center">Monday</th>
@@ -232,9 +220,46 @@
                         <tr>
                     </tbody>
                 </table>
-            </form>
+                </form>
 
-            
+
+                <table class="hoverable responsive-table">
+                    <thead>
+                        <tr>
+                            <!--<th data-field="id">Id</th> -->
+                            <th data-field="name">Subject Code</th>
+                            <th data-field="name">Subject Name</th>
+                            <th data-field="price">Lecturer Name</th>
+                            <th data-field="price">Credit</th>
+                            <th data-field="price">Edit Subject</th>
+                            <th data-field="price">Delete</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($subs as $sub)
+                        <tr>
+                            <td>{{$sub->subjectcode}}</td>
+                            <td>{{$sub->subjectname}}</td>
+                            <td>{{$sub->lectname}}</td>
+                            <td>{{$sub->credit}}</td>
+                            <td><a href="#" class="waves-effect waves-light btn">Edit</a> </td>
+                            <td><a href="/panel/subject-delete/{{$sub->id}}" class="waves-effect waves-light btn">Delete</a> </td>
+
+                        </tr>
+                        @endforeach
+
+                        @if ($count == 0)
+                        <tr>
+                            <td colspan="100" style="text-align:center">No Timetable create</td>
+                        </tr>
+                        @endif
+
+
+                    </tbody>
+                </table>
+
+
 
             </div>
         </div>
