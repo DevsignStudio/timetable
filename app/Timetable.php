@@ -38,6 +38,24 @@ class Timetable extends Model
 
     }
 
+    public function periodsExcept($id) {
+        $subjects = $this->subjects();
+        $periods = [];
+
+        foreach ($subjects as $subject) {
+            if ($subject->id!= $id) {
+                $ps = Period::where("subject_id", $subject->id)->get();
+
+                foreach ($ps as $p) {
+                    $periods[] = $p;
+                }
+            }
+
+        }
+        return $periods;
+
+    }
+
     public function day($day) {
         $subjects = $this->subjects();
         $periods = [];

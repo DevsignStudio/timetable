@@ -49,7 +49,6 @@
                     <tbody>
                         @foreach ($tts as $tt)
                         <tr>
-                            <!--<td>{{$tt->id}}</td> -->
                             <td>{{$tt->year}}</td>
                             <td>Semester {{$tt->semester}}</td>
                             <td>{{$tt->subjects()->count()}} subject(s)</td>

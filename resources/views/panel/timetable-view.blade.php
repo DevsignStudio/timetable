@@ -16,6 +16,17 @@
                     }
 
                 </style>
+                        @if (session()->has("err"))
+                               <div class="card-panel pink">
+                                <span class="white-text">{{session("err")}}</span>
+                               </div>
+                       @endif
+
+                       @if (session()->has("scs"))
+                       <div class="card-panel green">
+                           <span class="white-text">{{session("scs")}}</span>
+                       </div>
+                       @endif
                     <table class="hoverable responsive-table">
                     <thead>
                         <tr>
@@ -219,10 +230,8 @@
                         <tr>
                     </tbody>
                 </table>
-
-                <div style="margin-top: 40px;">
-
-                </div>
+                <hr>
+                <a href="/panel/timetable-subject-add/{{$tt->id}}" style="margin-top: 40px;margin-bottom: 24px;" class="waves-effect waves-light btn">Add Subject</a>
                 <table class="hoverable responsive-table" >
                     <thead>
                         <tr>
@@ -232,7 +241,6 @@
                             <th data-field="price">Credit</th>
                             <th data-field="price">Edit Subject</th>
                             <th data-field="price">Delete</th>
-
                         </tr>
                     </thead>
                     <tbody>
@@ -242,7 +250,7 @@
                             <td>{{$sub->subjectname}}</td>
                             <td>{{$sub->lectname}}</td>
                             <td>{{$sub->credit}}</td>
-                            <td><a href="#" class="waves-effect waves-light btn">Edit</a> </td>
+                            <td><a href="/panel/timetable-subject-edit/{{$sub->id}}" class="waves-effect waves-light btn">Edit</a> </td>
                             <td><a href="/panel/subject-delete/{{$sub->id}}" class="waves-effect waves-light btn">Delete</a> </td>
 
                         </tr>
@@ -253,13 +261,8 @@
                             <td colspan="100" style="text-align:center">No Timetable create</td>
                         </tr>
                         @endif
-
-
                     </tbody>
                 </table>
-
-
-
             </div>
         </div>
     </div>

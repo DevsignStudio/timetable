@@ -148,7 +148,7 @@ class PanelController extends Controller{
                 $period->save();
             }
         }
-        return redirect()->back()->with("scs", "Succesfully add new subject to Timetable");
+        return redirect("panel/timetable-view/".$tt_id)->with("scs", "Succesfully add new subject to Timetable");
     }
 
     public function getTimetableView($id = 0) {
@@ -168,6 +168,7 @@ class PanelController extends Controller{
         $data['tt_11'] = $tt->period(11);
         $data['tt_12'] = $tt->period(12);
 
+        $data['tt'] = $tt;
         $data["subs"] = $tt->subjects();
         $data["count"] = Subject::where("timetable_id", $tt->id)->count();
         return view("panel.timetable-view", $data);
@@ -195,6 +196,138 @@ class PanelController extends Controller{
         $subject->delete();
         //$period = delete();
        return redirect()->back()->with("scs", "Delete succesfully");
+    }
+
+    public function getTimetableSubjectEdit($id) {
+        $subject = Subject::find($id);
+
+        $data["subject"] = $subject;
+        $data["periods"] = Period::where("subject_id", $subject->id)->get();
+        $data["count"] = Period::where("subject_id", $subject->id)->count();
+
+        return view("panel.timetable-subject-edit", $data);
+    }
+
+    public function postTimetableSubjectEdit(Request $request) {
+        $subject = Subject::find(Crypt::decrypt($request->subject_id));
+        $periods= Period::where("subject_id", $subject->id)->get();
+        $count = Period::where("subject_id", $subject->id)->count();
+
+        $info[1][0] = "";
+        $info[1][1] = "";
+        $info[2][0] = "";
+        $info[2][1] = "";
+        $info[3][0] = "";
+        $info[3][1] = "";
+        $info[4][0] = "";
+        $info[4][1] = "";
+        $info[5][0] = "";
+        $info[5][1] = "";
+
+        $i = 1;
+
+        foreach ($periods as $period) {
+            $info[$i][0] = $period->day;
+            $info[$i][1] = $period->period;
+            $i += 1;
+        }
+
+        if ($request->has("day1") && $request->has("period1")) {
+            $info[1][0] = $request->day1;
+            $info[1][1] = $request->period1;
+        } else {
+            return redirect()->back()->with("err", "Error when trying to add subject");
+        }
+        if ($request->has("day2") && $request->has("period2")) {
+            $info[2][0] = $request->day2;
+            $info[2][1] = $request->period2;
+        } else {
+            if ($request->has("day2") || $request->has("period2")) {
+                return redirect()->back()->with("err", "Error when trying to add subject");
+            }
+        }
+        if ($request->has("day3") && $request->has("period3")) {
+            $info[3][0] = $request->day3;
+            $info[3][1] = $request->period3;
+        } else {
+            if ($request->has("day3") || $request->has("period3")) {
+                return redirect()->back()->with("err", "Error when trying to add subject");
+            }
+        }
+        if ($request->has("day4") && $request->has("period4")) {
+            $info[4][0] = $request->day4;
+            $info[4][1] = $request->period4;
+        } else {
+            if ($request->has("day4") || $request->has("period4")) {
+                return redirect()->back()->with("err", "Error when trying to add subject");
+            }
+        }
+        if ($request->has("day5") && $request->has("period5")) {
+            $info[5][0] = $request->day5;
+            $info[5][1] = $request->period5;
+        } else {
+            if ($request->has("day5") || $request->has("period5")) {
+                return redirect()->back()->with("err", "Error when trying to add subject");
+            }
+        }
+        // $tt_id = Crypt::decrypt($request->timetable_id);
+        $checkIfSame = false;
+        for ($i = 1; $i <= 5; $i++) {
+            if ($info[$i][0] != "" && $info[$i][1] != "") {
+                for ($j = 1; $j <= 5; $j++) {
+                    if($i != $j) {
+                        if ($info[$i][0] == $info[$j][0] && $info[$i][1] == $info[$j][1]) {
+                            $checkIfSame = true;
+                        }
+                    }
+                }
+            }
+        }
+        if ($checkIfSame) {
+            return redirect()->back()->with("err", "Error because you try to edit or add same period in same day for this subject");
+        }
+
+        $checkIfSame = false;
+        $allPeriods = Timetable::find($subject->timetable_id)->periodsExcept($subject->id);
+        for ($i = 1; $i <= 5; $i++) {
+            if ($info[$i][0] != "" && $info[$i][1] != "") {
+                foreach ($allPeriods as $period) {
+                    if ($info[$i][0] == $period->day && $info[$i][1] == $period->period) {
+                        $checkIfSame = true;
+                    }
+                }
+            }
+        }
+        if ($checkIfSame) {
+            return redirect()->back()->with("err", "Error because another subject already in one of your period that you want to add or edit");
+        }
+
+        $subject->subjectname = $request->name;
+        $subject->subjectcode = $request->code;
+        $subject->lectname = $request->lect_name;
+        $subject->credit = $request->credit;
+        $subject->save();
+
+        $i = 1;
+
+        foreach ($periods as $period) {
+            $period->day = $info[$i][0];
+            $period->period = $info[$i][1];
+            $period->save();
+            $i += 1;
+        }
+
+        for (; $i < 6; $i++) {
+            if ($info[$i][0] != "" && $info[$i][1] != "") {
+                $period = new Period;
+                $period->subject_id = $subject->id;
+                $period->day = $info[$i][0];
+                $period->period = $info[$i][1];
+                $period->save();
+            }
+        }
+
+        return redirect("panel/timetable-view/".$subject->timetable_id)->with("scs", "Succesfully edit subject to Timetable");
     }
 
 }
