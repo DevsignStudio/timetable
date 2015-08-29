@@ -197,13 +197,4 @@ class PanelController extends Controller{
        return redirect()->back()->with("scs", "Delete succesfully");
     }
 
-    public function getSubjectView($id) {
-        if($id==NULL)
-        {
-            return view("panel.subject-view") -> with('subject', $subject)->with("scs", "Delete succesfully");;
-        }
-        $subject = Subject::findOrFail($id);
-        return view("panel.subject-view") -> with('subject', $subject);
-    }
-
 }
