@@ -19,7 +19,7 @@
 
                         @if(Auth::guest())
 
-                            <a id="logo-container" href="/" class="brand-logo"><img class="responsive-img" src="/img/timetabler3.jpg" alt="TimeTabler"></a>
+                            <a id="logo-container" href="/" class="brand-logo" style="height: 100%; width: auto;"><img style="height: 100%; width: auto;" src="/img/timetabler3.jpg" alt="TimeTabler"></a>
                             <ul class="right hide-on-med-and-down">
                                 <li><a href="/login">Sign In</a></li>
                             </ul>
@@ -28,7 +28,7 @@
                                 <li><a href="/login">Sign In</a></li>
                             </ul>
                         @else
-                            <a id="logo-container" href="/panel" class="brand-logo"><img class="responsive-img" src="/img/timetabler.png" alt="TimeTabler"></a>
+                            <a id="logo-container" href="/panel" class="brand-logo" style="height: 100%; width: auto;"><img style="height: 100%; width: auto;" src="/img/timetabler.png" alt="TimeTabler"></a>
                             <ul class="right hide-on-med-and-down">
                                 <li><a href="/logout">Sign Out</a></li>
                             </ul>

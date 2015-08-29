@@ -194,7 +194,7 @@ class PanelController extends Controller{
         $period = Period::where("subject_id", $id)->delete();
         $subject->delete();
         //$period = delete();
-       return redirect("/panel/index") -> with("scs", "Delete succesfully");
+       return redirect()->back()->with("scs", "Delete succesfully");
     }
 
     public function getSubjectView($id) {
