@@ -201,10 +201,16 @@
                     <label>Fifth Period Time</label>
                 </div>
             </div>
+            <div class="input-field col s6">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            </div>
+            <div class="input-field col s6">
             <input type="hidden" name="timetable_id" value="{{ $tt_id }}">
+            </div>
+            <div>
             <button type="submit"  class="btn waves-effect waves- red darken-2">Add Subject</button>
             <button type="button" id="add-period" class="btn waves-effect waves- red darken-2">Add Period</button>
+            <div>
         </form>
     </div>
     <br><br>

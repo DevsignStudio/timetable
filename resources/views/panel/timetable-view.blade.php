@@ -16,6 +16,7 @@
                     }
 
                 </style>
+                <form class="col s12" action="/panel/subject-view" method="post">
                 <table class="hoverable responsive-table">
                     <thead>
                         <tr>
@@ -48,7 +49,7 @@
                                 <?php $has = false; ?>
                                 @foreach ($tt_2 as $x)
                                     @if ($x->day == $i)
-                                        <td class="subject" style="text-align:center">{{App\Subject::find($x->subject_id)->subjectcode}}</td>
+                                        <td class="subject" style="text-align:center"><a class="btn btn-link" href="/panel/subject-view/{{$x->subject_id}}">{{App\Subject::find($x->subject_id)->subjectcode}}</a></td>
                                         <?php $has = true; ?>
                                     @endif
                                 @endforeach
@@ -65,7 +66,7 @@
                                 <?php $has = false; ?>
                                 @foreach ($tt_3 as $x)
                                     @if ($x->day == $i)
-                                        <td class="subject" style="text-align:center">{{App\Subject::find($x->subject_id)->subjectcode}}</td>
+                                        <td class="subject" style="text-align:center"><a class="btn btn-link" href="/panel/subject-view/{{$x->subject_id}}">{{App\Subject::find($x->subject_id)->subjectcode}}</a></td>
                                         <?php $has = true; ?>
                                     @endif
                                 @endforeach
@@ -82,7 +83,7 @@
                                 <?php $has = false; ?>
                                 @foreach ($tt_4 as $x)
                                     @if ($x->day == $i)
-                                        <td class="subject" style="text-align:center">{{App\Subject::find($x->subject_id)->subjectcode}}</td>
+                                        <td class="subject" style="text-align:center"><a class="btn btn-link" href="/panel/subject-view/{{$x->subject_id}}">{{App\Subject::find($x->subject_id)->subjectcode}}</a></td>
                                         <?php $has = true; ?>
                                     @endif
                                 @endforeach
@@ -99,7 +100,7 @@
                                 <?php $has = false; ?>
                                 @foreach ($tt_5 as $x)
                                     @if ($x->day == $i)
-                                        <td class="subject" style="text-align:center">{{App\Subject::find($x->subject_id)->subjectcode}}</td>
+                                        <td class="subject" style="text-align:center"><a class="btn btn-link" href="/panel/subject-view/{{$x->subject_id}}">{{App\Subject::find($x->subject_id)->subjectcode}}</a></td>
                                         <?php $has = true; ?>
                                     @endif
                                 @endforeach
@@ -116,7 +117,7 @@
                                 <?php $has = false; ?>
                                 @foreach ($tt_6 as $x)
                                     @if ($x->day == $i)
-                                        <td class="subject" style="text-align:center">{{App\Subject::find($x->subject_id)->subjectcode}}</td>
+                                        <td class="subject" style="text-align:center"><a class="btn btn-link" href="/panel/subject-view/{{$x->subject_id}}">{{App\Subject::find($x->subject_id)->subjectcode}}</a></td>
                                         <?php $has = true; ?>
                                     @endif
                                 @endforeach
@@ -133,7 +134,7 @@
                                 <?php $has = false; ?>
                                 @foreach ($tt_7 as $x)
                                     @if ($x->day == $i)
-                                        <td class="subject" style="text-align:center">{{App\Subject::find($x->subject_id)->subjectcode}}</td>
+                                        <td class="subject" style="text-align:center"><a class="btn btn-link" href="/panel/subject-view/{{$x->subject_id}}">{{App\Subject::find($x->subject_id)->subjectcode}}</a></td>
                                         <?php $has = true; ?>
                                     @endif
                                 @endforeach
@@ -150,7 +151,7 @@
                                 <?php $has = false; ?>
                                 @foreach ($tt_8 as $x)
                                     @if ($x->day == $i)
-                                        <td class="subject" style="text-align:center">{{App\Subject::find($x->subject_id)->subjectcode}}</td>
+                                        <td class="subject" style="text-align:center"><a class="btn btn-link" href="/panel/subject-view/{{$x->subject_id}}">{{App\Subject::find($x->subject_id)->subjectcode}}</a></td>
                                         <?php $has = true; ?>
                                     @endif
                                 @endforeach
@@ -167,7 +168,7 @@
                                 <?php $has = false; ?>
                                 @foreach ($tt_9 as $x)
                                     @if ($x->day == $i)
-                                        <td class="subject" style="text-align:center">{{App\Subject::find($x->subject_id)->subjectcode}}</td>
+                                        <td class="subject" style="text-align:center"><a class="btn btn-link" href="/panel/subject-view/{{$x->subject_id}}">{{App\Subject::find($x->subject_id)->subjectcode}}</a></td>
                                         <?php $has = true; ?>
                                     @endif
                                 @endforeach
@@ -184,7 +185,7 @@
                                 <?php $has = false; ?>
                                 @foreach ($tt_10 as $x)
                                     @if ($x->day == $i)
-                                        <td class="subject" style="text-align:center">{{App\Subject::find($x->subject_id)->subjectcode}}</td>
+                                        <td class="subject" style="text-align:center"><a class="btn btn-link" href="/panel/subject-view/{{$x->subject_id}}">{{App\Subject::find($x->subject_id)->subjectcode}}</a></td>
                                         <?php $has = true; ?>
                                     @endif
                                 @endforeach
@@ -201,7 +202,7 @@
                                 <?php $has = false; ?>
                                 @foreach ($tt_11 as $x)
                                     @if ($x->day == $i)
-                                        <td class="subject" style="text-align:center">{{App\Subject::find($x->subject_id)->subjectcode}}</td>
+                                        <td class="subject" style="text-align:center"><a class="btn btn-link" href="/panel/subject-view/{{$x->subject_id}}">{{App\Subject::find($x->subject_id)->subjectcode}}</a></td>
                                         <?php $has = true; ?>
                                     @endif
                                 @endforeach
@@ -218,7 +219,7 @@
                                 <?php $has = false; ?>
                                 @foreach ($tt_12 as $x)
                                     @if ($x->day == $i)
-                                        <td class="subject" style="text-align:center">{{App\Subject::find($x->subject_id)->subjectcode}}</td>
+                                        <td class="subject" style="text-align:center"><a class="btn btn-link" href="/panel/subject-view/{{$x->subject_id}}">{{App\Subject::find($x->subject_id)->subjectcode}}</a></td>
                                         <?php $has = true; ?>
                                     @endif
                                 @endforeach
@@ -231,6 +232,9 @@
                         <tr>
                     </tbody>
                 </table>
+            </form>
+
+            
 
             </div>
         </div>

@@ -12,6 +12,7 @@ use Hash;
 use Auth;
 use Crypt;
 
+
 class PanelController extends Controller{
     public function getIndex() {
         $data['tts'] = Timetable::where("user_id", Auth::user()->id)->get();
@@ -183,6 +184,8 @@ class PanelController extends Controller{
         return redirect()->back()->with("scs", "Succesfully add new subject to Timetable");
     }
 
+
+
     public function getTimetableView($id = 0) {
         if ($id == 0) {
             return redirect()->back()->with("err", "An error has occur when try to reach page");
@@ -205,4 +208,60 @@ class PanelController extends Controller{
         // return $tt->period(2);
         return view("panel.timetable-view", $data);
     }
+
+
+     public function TimetableDelete($id) {
+
+        //
+        $subjects = Subject::where("timetable_id", $id)->get();
+
+        foreach($subjects as $subject) {
+            if($subject->timetable_id == $id) {
+                $sid = $subject->id;
+                $period = Period::where("subject_id", $sid)->delete();
+                $subject->delete();
+            }
+        }
+        
+        $timetable = Timetable::findOrFail($id);
+        $timetable->delete();
+
+       return redirect("/panel/index") -> with("scs", "Delete succesfully");
+    }
+
+    public function TimetableSubjectDelete($id) {
+
+        $subject = Subject::findOrFail($id);
+        $period = Period::where("subject_id", $id)->delete();
+        $subject->delete();
+        //$period = delete();
+
+       return redirect("/panel/index") -> with("scs", "Delete succesfully");
+    }
+
+    
+
+    public function getSubjectView($id) {
+
+        if($id==NULL)
+        {
+            return view("panel.subject-view") -> with('subject', $subject)->with("scs", "Delete succesfully");;
+        }
+
+        $subject = Subject::findOrFail($id);
+
+        return view("panel.subject-view") -> with('subject', $subject);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+ 
+
+
+
+
 }
