@@ -21,20 +21,18 @@
                         <a href="panel/timetable-add" class="white-text">Add new Timetable</a>
                     </div>
 
-
-                     @if (session()->has("err"))
-                            <div class="card-panel pink">
-                             <span class="white-text">{{session("err")}}</span>
-                            </div>
-                    @endif
-
-            @if (session()->has("scs"))
-            <div class="card-panel green">
-                <span class="white-text">{{session("scs")}}</span>
-            </div>
-            @endif
-
                 </div>
+                @if (session()->has("err"))
+                       <div class="card-panel pink">
+                        <span class="white-text">{{session("err")}}</span>
+                       </div>
+               @endif
+
+               @if (session()->has("scs"))
+               <div class="card-panel green">
+                   <span class="white-text">{{session("scs")}}</span>
+               </div>
+               @endif
                 <h4 class="red-text">My Timetable</h4>
                 <table class="hoverable responsive-table">
                     <thead>
@@ -62,7 +60,7 @@
                             <td>
                                 <a href="/panel/timetable-subject-add/{{$tt->id}}" class="waves-effect waves-light btn">Add</a>
                             </td>
-                            <td> <a href="{{ route('timetable.delete',$tt->id) }}" class="waves-effect waves-light btn">delete</a> </td>
+                            <td> <a href="/panel/timetable-delete/{{$tt->id}}" class="waves-effect waves-light btn">delete</a> </td>
 
                         </tr>
                         @endforeach

@@ -48,7 +48,7 @@
         <div class='col s12'>
             <a href="" class="waves-effect waves-light btn">Edit</a>
 
-            <a href="{{ route('subject.delete',$subject->id) }}" class="waves-effect waves-light btn">delete</a>
+            <a href="/panel/subject-delete/{{$subject->id}}" class="waves-effect waves-light btn">delete</a>
         </div>
         @endif
     </div>
